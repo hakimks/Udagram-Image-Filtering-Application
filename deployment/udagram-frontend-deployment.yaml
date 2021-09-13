@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: udagram-frontend
-          image: hakimks/udagram-frontend:v1
+          image: hakimks/udagram-frontend:v2
           ports:
             - containerPort: 80
       restartPolicy: Always

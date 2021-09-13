@@ -18,6 +18,7 @@ spec:
       containers:
         - name: udagram-reverseproxy
           image: hakimks/udagram-reverseproxy:v1
+          imagePullPolicy: Always 
           ports:
             - containerPort: 8080
       restartPolicy: Always
