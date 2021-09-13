@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: udagram-frontend
+  name: udagram-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-frontend
+  template:
+    metadata:
+      labels:
+        app: udagram-frontend
+        api: external
+    spec:
+      containers:
+        - name: udagram-frontend
+          image: hakimks/udagram-frontend:v1
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
