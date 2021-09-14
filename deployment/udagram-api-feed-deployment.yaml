@@ -1,22 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: udagram-feed
   name: udagram-feed
+  labels:
+    service: udagram-feed
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: udagram-feed
+      service: udagram-feed
   template:
     metadata:
       labels:
-        app: udagram-feed
+        service: udagram-feed
     spec:
       containers:
         - name: udagram-api-feed
           image: hakimks/udagram-api-feed:v1
+          imagePullPolicy: Always
           env:
             - name: URL
               valueFrom:

@@ -2,21 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: udagram-user
+    service: udagram-user
   name: udagram-user
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: udagram-user
+      service: udagram-user
   template:
     metadata:
       labels:
-        app: udagram-user
+        service: udagram-user
     spec:
       containers:
         - name: udagram-api-user
           image: hakimks/udagram-api-user:v1
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
           env:
             - name: URL
               valueFrom:
